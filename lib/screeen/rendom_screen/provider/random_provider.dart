@@ -4,13 +4,11 @@ import 'package:random_user_api/utils/api_helper.dart';
 
 class Redom_provider extends ChangeNotifier {
   // RandomUser? rendomdata;
-
+    UserModal? rendomdata;
   Api_helper api_helper = Api_helper();
 
-  Future<RandomUser?> get_rendom() async {
-    RandomUser? rendomdata;
+  Future<UserModal?> get_rendom() async {
     rendomdata = await api_helper.postApiCall();
-
-    return rendomdata;
+    notifyListeners();
   }
 }
